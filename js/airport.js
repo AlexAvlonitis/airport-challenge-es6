@@ -1,6 +1,7 @@
 export default class Airport {
-  constructor() {
+  constructor(weather = null) {
     this.planes = []
+    this.weather = weather
   }
 
   arrivals(plane) {
@@ -9,6 +10,10 @@ export default class Airport {
 
   departures(plane) {
     this.planes = this.planes.filter(pl => pl.id !== plane.id);
+  }
+
+  currentWeather() {
+    return this.weather && this.weather.current();
   }
 
   capacity() {
