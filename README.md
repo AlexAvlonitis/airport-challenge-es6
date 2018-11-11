@@ -1,6 +1,13 @@
 ## **Airport challenge**
 
-practice es6
+Practice es6
+
+```
+npm install
+```
+```
+npm test
+```
 
 ## User Stories
 
