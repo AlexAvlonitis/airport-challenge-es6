@@ -10,20 +10,22 @@ describe("Plane", () => {
     plane = new Plane();
     plane2 = new Plane();
     airport = new Airport();
+
+    spyOn(airport, 'arrivals');
+    spyOn(airport, 'departures');
   })
 
-  describe('Instruct a plane to land to an airport', () => {
-    it("lands to given airport", () => {
+  describe('can land to an airport', () => {
+    it("calls arrivals on airport", () => {
       plane.land_to(airport)
-      expect(airport.capacity()).toEqual(1);
+      expect(airport.arrivals).toHaveBeenCalledWith(plane);
     });
   })
 
-  describe('Instruct a plane to take off from an airport', () => {
-    it("takes off from given airport", () => {
-      plane2.land_to(airport)
+  describe('can take off from an airport', () => {
+    it("calls departures on airport", () => {
       plane.take_off(airport)
-      expect(airport.capacity()).toEqual(1);
+      expect(airport.departures).toHaveBeenCalledWith(plane);
     });
   })
 });

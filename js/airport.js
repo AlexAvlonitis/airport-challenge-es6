@@ -1,6 +1,9 @@
+const CAPACITY = 20;
+
 export default class Airport {
-  constructor(weather = null) {
+  constructor(weather = null, capacity = null) {
     this.planes = []
+    this.capacity = capacity || CAPACITY
     this.weather = weather
   }
 
@@ -14,9 +17,5 @@ export default class Airport {
 
   currentWeather() {
     return this.weather && this.weather.current();
-  }
-
-  capacity() {
-    return this.planes.length;
   }
 }
