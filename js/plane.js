@@ -2,7 +2,7 @@ export default class Plane {
   constructor() {
   }
 
-  land(){
+  land_to(airport){
+    airport.arrivals(this.self);
   }
-
 }
