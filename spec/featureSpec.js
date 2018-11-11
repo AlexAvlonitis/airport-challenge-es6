@@ -51,6 +51,20 @@ describe("feature - Air Traffic Controller", () => {
         .toThrow("Cannot land, the weather is stormy");
     });
   })
+
+  describe('When the airport is over capacity', () => {
+    it('cannot land', () => {
+      airport = new Airport(weather, 4);
+      spyOn(airport, 'currentWeather').and.returnValue('sunny');
+
+      AirTrafficController.land(plane, airport)
+      AirTrafficController.land(plane, airport)
+      AirTrafficController.land(plane, airport)
+      AirTrafficController.land(plane, airport)
+      expect(() => { AirTrafficController.land(plane, airport) })
+        .toThrow('Cannot land, the airport is over capacity');
+    })
+  })
 });
 
 

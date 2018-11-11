@@ -3,6 +3,9 @@ export default class AirTrafficController {
     if (airport.currentWeather() == 'stormy')
       throw "Cannot land, the weather is stormy";
 
+    if (airport.planes.length === airport.capacity)
+      throw "Cannot land, the airport is over capacity";
+
     plane.land_to(airport);
   }
 

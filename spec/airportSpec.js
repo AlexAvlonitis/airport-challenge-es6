@@ -28,6 +28,13 @@ describe("Airport", () => {
       expect(airport.currentWeather()).toEqual('stormy')
     });
   })
+
+  describe("Can have variable plane capacity", () => {
+    it("returns its current capacity limit", () => {
+      airport = new Airport(weather, 6)
+      expect(airport.capacity).toEqual(6)
+    });
+  })
 });
 
 
